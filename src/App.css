@@ -91,6 +91,7 @@ body {
 .brand h2 {
   font-size: 25px;
   letter-spacing: -0.7px;
+  color:#22c55e;
 }
 
 .brand p {
@@ -137,6 +138,7 @@ body {
   line-height: 0.94;
   letter-spacing: -3.8px;
   margin-bottom: 24px;
+  color:#22c55e
 }
 
 .hero-left p {
