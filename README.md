@@ -44,11 +44,11 @@ This is a medium-level frontend project because it includes file upload handling
 
 ## Live Demo
 
-Live URL: [Add your Vercel link here]
+Live URL: https://resume-fit-ecru.vercel.app/
 
 ## GitHub Repository
 
-Repository: [Add your GitHub repo link here]
+Repository: https://github.com/dhruv3140/resume-fit
 
 ## Built By
 
