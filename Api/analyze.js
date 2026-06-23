@@ -44,7 +44,7 @@ Do not give fake achievements. Do not tell the user to lie.
 `;
 
     const response = await ai.models.generateContent({
-      model: "gemini-1.5-flash",
+      model: "gemini-2.5-flash",
       contents: prompt,
     });
 

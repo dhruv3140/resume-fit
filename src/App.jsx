@@ -269,11 +269,35 @@ Do not tell the user to lie.
 
     setAiSuggestions(parsed);
   } catch (error) {
-    console.error(error);
-    setAiError(error.message || "Gemini AI suggestions failed.");
-  } finally {
-    setAiLoading(false);
-  }
+  console.error(error);
+
+  setAiError("Gemini AI is currently busy, so showing offline suggestions instead.");
+  setAiSuggestions({
+    summary:
+      "Your resume has been analyzed using the built-in resume matching system. AI suggestions could not be generated right now because the model is busy.",
+    strengths: [
+      analysis.matched.length > 0
+        ? `Your resume already matches keywords like ${analysis.matched.slice(0, 5).join(", ")}.`
+        : "Your resume has some relevant content, but stronger keyword alignment is needed.",
+      "The tool successfully compares your resume with the job description.",
+      "You can improve the resume by adding missing role-specific skills."
+    ],
+    improvements: [
+      analysis.missing.length > 0
+        ? `Add relevant missing keywords such as ${analysis.missing.slice(0, 6).join(", ")}.`
+        : "Your resume already covers most important keywords from this job description.",
+      "Add measurable project impact wherever possible.",
+      "Mention tools, technologies, and outcomes clearly in each project."
+    ],
+    rewriteTips: [
+      "Rewrite project points using action words like built, developed, implemented, optimized, or deployed.",
+      "Add numbers wherever possible, such as accuracy, users, speed improvement, or time saved.",
+      "Keep resume points short, specific, and aligned with the job description."
+    ]
+  });
+} finally {
+  setAiLoading(false);
+}
 };
 
   const copyToClipboard = (text) => {
